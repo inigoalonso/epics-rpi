@@ -21,19 +21,7 @@ ln -s /home/pi/Apps/epics/base-3.14.12.5 /home/pi/Apps/epics/base
 
 # Set the EPICS environment variables
 echo "Setting up the EPICS enviroment variables"
-cat <<EOF >> /home/pi/.bash_aliases
-export EPICS_ROOT=/usr/local/epics
-export EPICS_BASE=\${EPICS_ROOT}/base
-export EPICS_HOST_ARCH=/\\`\${EPICS_BASE}/startup/EpicsHostArch\\`
-export EPICS_BASE_BIN=\${EPICS_BASE}/bin/\${EPICS_HOST_ARCH}
-export EPICS_BASE_LIB=\${EPICS_BASE}/lib/\${EPICS_HOST_ARCH}
-if [ "" = "\${LD_LIBRARY_PATH}" ]; then
-    export LD_LIBRARY_PATH=\${EPICS_BASE_LIB}
-else
-    export LD_LIBRARY_PATH=\${EPICS_BASE_LIB}:\${LD_LIBRARY_PATH}
-fi
-export PATH=\${PATH}:\${EPICS_BASE_BIN}
-EOF
+cat to-add-to-bash-aliases >> /home/pi/.bash_aliases
 . /home/pi/.bashrc
 
 # Compile EPICS
