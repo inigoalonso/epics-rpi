@@ -22,7 +22,7 @@ ln -s /home/pi/Apps/epics/base-3.14.12.5 /home/pi/Apps/epics/base
 # Set the EPICS environment variables
 echo "Setting up the EPICS enviroment variables"
 cat /home/pi/epics-rpi/to-add-to-bash-aliases >> /home/pi/.bash_aliases
-. /home/pi/.bashrc
+source /home/pi/.bashrc
 
 # Compile EPICS
 echo "Compiling EPICS"
